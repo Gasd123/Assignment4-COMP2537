@@ -108,7 +108,7 @@ function startGame() {
             cardBoard.style.gridTemplateRows = 'repeat(3, 1fr)';
             break;
         case 'hard':
-            totalPairs = 9;
+            totalPairs = 10;
             timeLeft = 30;
             cardBoard.style.gridTemplateColumns = 'repeat(5, 1fr)';
             cardBoard.style.gridTemplateRows = 'repeat(4, 1fr)';
