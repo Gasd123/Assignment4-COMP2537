@@ -108,7 +108,7 @@ function startGame() {
             cardBoard.style.gridTemplateRows = 'repeat(3, 1fr)';
             break;
         case 'hard':
-            totalPairs = 10;
+            totalPairs = 9;
             timeLeft = 30;
             cardBoard.style.gridTemplateColumns = 'repeat(5, 1fr)';
             cardBoard.style.gridTemplateRows = 'repeat(4, 1fr)';
@@ -134,6 +134,8 @@ function startGame() {
         cards.sort(() => 0.5 - Math.random());
         cards.forEach(card => cardBoard.appendChild(card));
         startTimer();
+        gameActive = true;
+        startBtn.style.display = 'none'; // Hide start button when game is active
     });
 }
 
@@ -151,7 +153,17 @@ function startTimer() {
 
 function resetGame() {
     clearInterval(timer);
-    startGame();
+    matchedPairs = 0;
+    clicks = 0;
+    flippedCards = [];
+    cards = [];
+    clicksSpan.textContent = clicks;
+    pairsLeftSpan.textContent = '0';
+    pairsMatchedSpan.textContent = '0';
+    totalPairsSpan.textContent = '0';
+    timeLeftSpan.textContent = '0';
+    cardBoard.innerHTML = '';
+    startBtn.style.display = 'block'; // Show start button when game is reset
 }
 
 function powerUp() {
